@@ -1,0 +1,19 @@
+<h1>Venues</h1>
+<div class="row">
+  <div class="col-sm-5 col-sm-offset-1">
+    <ul>
+    #foreach($venue in $venueList)
+      <li><a href="/venue/$venue.getId()">$venue.getName()</a></li>
+    #end
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h3>Add A New Venue:</h3>
+    <form action="/addVenue" method="post">
+      <div class="form-group">
+        <label for="venue_name">Venue Name</label>
+        <input type="text" id="venue_name" name="venue_name" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>

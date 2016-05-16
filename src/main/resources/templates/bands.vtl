@@ -1,0 +1,25 @@
+<h1>Bands</h1>
+
+<div class="row">
+  <div class="col-sm-6">
+    <ul>
+
+      #foreach($band in $bandList)
+
+        <li><a href="/band/$band.getId()">$band.getName()</a></li>
+
+      #end
+
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h3>Add A New Band:</h3>
+    <form action="/addBand" method="post">
+      <div class="form-group">
+        <label for="band_name">Band Name</label>
+        <input type="text" id="band_name" name="band_name" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h1>$venue.getName()</h1>
+
+<h3>Bands Who Have Played Here</h3>
+<ul>
+  #foreach($band in $bandList)
+    <li><a href="/band/$band.getId()">$band.getName()</a></li>
+  #end
+</ul>

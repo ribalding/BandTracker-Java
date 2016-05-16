@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-4">
+    <h1>$band.getName()</h1>
+    <a href="/band/$band.getId()/update">Edit Name</a>
+    #if ($confirmEditName)
+      <form action="/band/$band.getId()/submitUpdate" method="post">
+        <div class="form-group">
+          <input type="text" id="updateName" name="updateName" value="$band.getName()" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    #end
+  </div>
+  <div class="col-sm-2 col-sm-offset-6">
+    <a href="/band/$band.getId()/delete">Delete This Band</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-5">
+    <h3>Visited Venues</h3>
+    <ul>
+      #foreach($venue in $attachedVenues)
+        <li><a href="/venue/$venue.getId()">$venue.getName()</a></li>
+      #end
+    </ul>
+  </div>
+  <div class="col-sm-7">
+    <form action="/band/$band.getId()/attachVenue" method="post">
+      <label for="attachVenue">Add A Venue This Band Has Visited</label><br>
+      #foreach($venue in $venueList)
+        <input type="checkbox" id="attachVenue" name="attachVenue" value="$venue.getId()">$venue.getName()<br>
+      #end
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
