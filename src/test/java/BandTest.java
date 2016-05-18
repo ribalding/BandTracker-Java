@@ -1,6 +1,7 @@
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.List;
 
 public class BandTest{
 
@@ -23,11 +24,28 @@ public class BandTest{
   }
 
   @Test
+  public void attachVenue_attachesVenueToBand(){
+    Band newBand = new Band("Kvelertak");
+    newBand.save();
+    Venue newVenue = new Venue("Mohawk Place");
+    newVenue.save();
+    newBand.attachVenue(newVenue.getId());
+    List<Venue> venueList = newBand.getVenues();
+    assertEquals(1, venueList.size());
+  }
+
+  @Test
   public void update_updatesInformationCorrectly(){
     Band newBand = new Band("The Replacements");
     newBand.save();
     newBand.update("Kylesa");
     assertEquals("Kylesa", Band.find(newBand.getId()).getName());
+  }
+
+  @Test
+  public void validate_returnsFalseIfPassedAnEmptyString(){
+    boolean bandNameTest = Band.validate("");
+    assertEquals(false, bandNameTest);
   }
 
   @Test

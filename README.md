@@ -13,7 +13,7 @@ _Clone this repository_
 
 _Navigate to your database software in your terminal and execute the following commands:_
 
-_CREATE DATABASE band_tracker; CREATE TABLE bands(id serial PRIMARY KEY, name varchar);_
+_CREATE DATABASE band_tracker;_
 _CREATE TABLE venues(id serial PRIMARY KEY, venue_name varchar);_
 _CREATE TABLE bands(id serial PRIMARY KEY, band_name varchar);_
 _CREATE TABLE bands_venues(id serial PRIMARY KEY, band_id int, venue_id int);_
